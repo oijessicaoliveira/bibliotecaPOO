@@ -1,0 +1,254 @@
+:root {
+    --cor-primaria: #7b0b85;
+    --cor-primaria-hover: #940ea0;
+    --cor-secundaria: #6c757d;
+    --cor-fundo: #f8f9fa;
+    --cor-surface: #ffffff;
+    --cor-texto: #222527;
+    --cor-borda: #dee2e6;
+    --cor-sucesso: #1d6c2f;
+    --cor-erro: #831621;
+    --sombra-padrao: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --sombra-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+    --border-radius-padrao: 8px;
+    --font-principal: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-principal);
+    line-height: 1.7;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-surface);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: var(--sombra-padrao);
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap; /* Permite que as seções quebrem em telas menores */
+    gap: 1.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 1400px; /* Limita a largura máxima para telas grandes */
+    margin: 0 auto; /* Centraliza o conteúdo principal */
+}
+
+/* Estilos das seções principais */
+#adicionar-publicacao,
+#lista-publicacoes,
+#detalhes-publicacao {
+    background-color: var(--cor-surface);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-padrao);
+    box-shadow: var(--sombra-padrao);
+    flex-basis: 300px; /* Base para o tamanho, permitirá o crescimento */
+    flex-grow: 1;
+}
+
+#adicionar-publicacao {
+    flex-basis: 350px; /* Um pouco mais de espaço para o formulário */
+}
+
+#lista-publicacoes {
+    flex-grow: 2; /* Ocupa mais espaço se disponível */
+}
+
+
+h2 {
+    font-weight: 600;
+    color: var(--cor-primaria);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    border-bottom: 2px solid var(--cor-borda);
+    padding-bottom: 0.5rem;
+}
+
+/* Estilização do formulário */
+#form-publicacao div {
+    margin-bottom: 1rem;
+}
+
+#form-publicacao label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--cor-texto-claro);
+}
+
+#form-publicacao input[type="text"],
+#form-publicacao input[type="number"],
+#form-publicacao select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--border-radius-padrao);
+    font-family: var(--font-principal);
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#form-publicacao input[type="text"]:focus,
+#form-publicacao input[type="number"]:focus,
+#form-publicacao select:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.campos-especificos {
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px dashed var(--cor-borda);
+    border-radius: var(--border-radius-padrao);
+    background-color: #fdfdfd; /* Leve diferenciação */
+}
+.campos-especificos label {
+    width: auto; /* Para não ocupar 100% */
+    margin-right: 0.5rem;
+}
+.campos-especificos input {
+    margin-bottom: 0.5rem; /* Espaçamento entre inputs nos campos específicos */
+}
+
+
+#form-publicacao button[type="submit"] {
+    background-color: var(--cor-primaria);
+    color: var(--cor-surface);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius-padrao);
+    font-family: var(--font-principal);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: inline-block; /* Para não ocupar 100% da largura */
+}
+
+#form-publicacao button[type="submit"]:hover {
+    background-color: var(--cor-primaria-hover);
+    transform: translateY(-1px);
+}
+
+/* Estilização da lista de publicações */
+#publicacoes-container {
+    max-height: 600px; /* Altura máxima com scroll se necessário */
+    overflow-y: auto;
+    padding-right: 0.5rem; /* Espaço para a barra de rolagem */
+}
+
+.publicacao-item {
+    border: 1px solid var(--cor-borda);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-padrao);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    background-color: var(--cor-surface);
+}
+
+.publicacao-item:hover {
+    border-color: var(--cor-primaria);
+    box-shadow: var(--sombra-hover);
+}
+
+.publicacao-item strong {
+    font-weight: 600;
+    color: var(--cor-primaria);
+}
+
+/* Estilização dos detalhes da publicação */
+#detalhes-container h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--cor-texto);
+}
+
+#detalhes-container p {
+    margin-bottom: 0.75rem;
+    color: var(--cor-texto-claro);
+}
+
+#detalhes-container p strong {
+    color: var(--cor-texto);
+    font-weight: 500;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: #343a40; /* Cinza escuro para o rodapé */
+    color: #f8f9fa; /* Texto claro no rodapé */
+    margin-top: auto; /* Garante que o rodapé fique no final */
+}
+
+/* Responsividade básica */
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+    }
+    #adicionar-publicacao,
+    #lista-publicacoes,
+    #detalhes-publicacao {
+        flex-basis: auto; /* Permite que ocupem a largura total */
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    #form-publicacao input[type="text"],
+    #form-publicacao input[type="number"],
+    #form-publicacao select,
+    #form-publicacao button[type="submit"] {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+}
+
+/* Estilos para a barra de rolagem (opcional, mas dá um toque) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+}

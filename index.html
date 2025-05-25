@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Digital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Biblioteca Digital</h1>
+    </header>
+
+    <main>
+        <section id="adicionar-publicacao">
+            <h2>Adicionar Nova Publicação</h2>
+            <form id="form-publicacao">
+                <div>
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="Livro">Livro</option>
+                        <option value="Revista">Revista</option>
+                        <option value="Ebook">Ebook</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+                <div>
+                    <label for="autor">Autor:</label>
+                    <input type="text" id="autor" name="autor">
+                </div>
+                <div>
+                    <label for="editora">Editora:</label>
+                    <input type="text" id="editora" name="editora">
+                </div>
+                <div>
+                    <label for="numeroDePaginas">Nº de Páginas:</label>
+                    <input type="number" id="numeroDePaginas" name="numeroDePaginas" min="1">
+                </div>
+
+                <div id="campos-livro" class="campos-especificos">
+                    <label for="genero">Gênero (Livro):</label> <input type="text" id="genero" name="genero"><br>
+                    <label for="volume">Volume (Livro):</label> <input type="number" id="volume" name="volume" min="1"><br>
+                    <label for="isbn">ISBN (Livro):</label> <input type="text" id="isbn" name="isbn"><br>
+                    <label for="numeroDeCapitulos">Nº de Capítulos (Livro):</label> <input type="number" id="numeroDeCapitulos" name="numeroDeCapitulos" min="1"><br>
+                </div>
+                <div id="campos-revista" class="campos-especificos" style="display:none;">
+                    <label for="edicao">Edição (Revista):</label> <input type="text" id="edicao" name="edicao"><br>
+                    <label for="assunto">Assunto (Revista):</label> <input type="text" id="assunto" name="assunto"><br>
+                    <label for="issn">ISSN (Revista):</label> <input type="text" id="issn" name="issn"><br>
+                    <label for="numeroDeArtigos">Nº de Artigos (Revista):</label> <input type="number" id="numeroDeArtigos" name="numeroDeArtigos" min="0"><br>
+                </div>
+                <div id="campos-ebook" class="campos-especificos" style="display:none;">
+                    <label for="tamanhoEmMB">Tamanho MB (Ebook):</label> <input type="number" id="tamanhoEmMB" name="tamanhoEmMB" min="1"><br>
+                    <label for="formato">Formato (Ebook):</label> <input type="text" id="formato" name="formato"><br>
+                </div>
+
+                <button type="submit">Adicionar Publicação</button>
+            </form>
+        </section>
+
+        <section id="lista-publicacoes">
+            <h2>Publicações Registradas</h2>
+            <div id="publicacoes-container">
+                <p>Carregando publicações...</p>
+            </div>
+        </section>
+
+        <aside id="detalhes-publicacao">
+            <h2>Detalhes da Publicação</h2>
+            <div id="detalhes-container">
+                <p>Selecione uma publicação para ver os detalhes.</p>
+            </div>
+        </aside>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>
