@@ -1,17 +1,22 @@
 :root {
-    --cor-primaria: #7b0b85;
-    --cor-primaria-hover: #940ea0;
-    --cor-secundaria: #6c757d;
-    --cor-fundo: #f8f9fa;
-    --cor-surface: #ffffff;
-    --cor-texto: #222527;
-    --cor-borda: #dee2e6;
-    --cor-sucesso: #1d6c2f;
-    --cor-erro: #831621;
-    --sombra-padrao: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --sombra-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
-    --border-radius-padrao: 8px;
-    --font-principal: 'Poppins', sans-serif;
+    /* Paleta "Manuscrito Digital Sofisticado" */
+    --cor-fundo-pagina: #FBF9F6;
+    --cor-surface: #FFFFFF;
+    --cor-texto-principal: #3D3A37;
+    --cor-texto-secundario: #7A736D;
+    --cor-destaque: #8B4513; /* Sienna */
+    --cor-destaque-hover: #A0522D;
+    --cor-borda-sutil: #EAE0D6;
+    --cor-borda-input: #CFC0B1;
+    --cor-sucesso: #2E7D32;
+    --cor-erro: #C62828;
+
+    --sombra-muito-leve: 0 1px 3px rgba(0, 0, 0, 0.03);
+    --sombra-discreta: 0 3px 8px rgba(0, 0, 0, 0.05);
+    --border-radius-classico: 4px;
+
+    --font-corpo: 'Inter', sans-serif;
+    --font-titulo-principal: 'Playfair Display', serif; /* Apenas para H1 */
 }
 
 * {
@@ -21,90 +26,104 @@
 }
 
 body {
-    font-family: var(--font-principal);
-    line-height: 1.7;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
+    font-family: var(--font-corpo);
+    line-height: 1.65;
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-principal);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 header {
-    background-color: var(--cor-primaria);
-    color: var(--cor-surface);
-    padding: 1.5rem 1rem;
+    background-color: transparent;
+    color: var(--cor-destaque);
+    padding: 2rem 1.5rem;
     text-align: center;
-    box-shadow: var(--sombra-padrao);
+    border-bottom: 1px solid var(--cor-borda-sutil);
 }
 
 header h1 {
-    font-weight: 600;
-    font-size: 1.5rem;
+    font-family: var(--font-titulo-principal); /* Serifada aqui */
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: 0.5px;
+    color: var(--cor-texto-principal); /* Pode ser a cor principal ou a de destaque */
 }
 
 main {
     flex: 1;
     display: flex;
-    flex-wrap: wrap; /* Permite que as seções quebrem em telas menores */
-    gap: 1.5rem;
-    padding: 1.5rem;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    padding: 2.5rem;
     width: 100%;
-    max-width: 1400px; /* Limita a largura máxima para telas grandes */
-    margin: 0 auto; /* Centraliza o conteúdo principal */
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
-/* Estilos das seções principais */
 #adicionar-publicacao,
 #lista-publicacoes,
 #detalhes-publicacao {
     background-color: var(--cor-surface);
-    padding: 1.5rem;
-    border-radius: var(--border-radius-padrao);
-    box-shadow: var(--sombra-padrao);
-    flex-basis: 300px; /* Base para o tamanho, permitirá o crescimento */
+    padding: 2rem 2.5rem;
+    border-radius: var(--border-radius-classico);
+    border: 1px solid var(--cor-borda-sutil);
+    box-shadow: var(--sombra-discreta);
+    flex-basis: 350px;
     flex-grow: 1;
 }
 
 #adicionar-publicacao {
-    flex-basis: 350px; /* Um pouco mais de espaço para o formulário */
+    flex-basis: 400px;
 }
 
 #lista-publicacoes {
-    flex-grow: 2; /* Ocupa mais espaço se disponível */
+    flex-grow: 1.5;
+    max-height: 75vh;
+    display: flex;
+    flex-direction: column;
 }
 
-
+/* Títulos de Seção (H2) e outros subtítulos com Inter */
 h2 {
-    font-weight: 600;
-    color: var(--cor-primaria);
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    border-bottom: 2px solid var(--cor-borda);
-    padding-bottom: 0.5rem;
+    font-family: var(--font-corpo); /* Inter */
+    font-weight: 600; /* Inter Semibold */
+    color: var(--cor-texto-principal);
+    margin-bottom: 2rem;
+    font-size: 1.5rem; /* Ajustar tamanho para Inter */
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--cor-borda-sutil);
+    letter-spacing: 0.2px; /* Menos letter-spacing para Inter */
 }
 
 /* Estilização do formulário */
 #form-publicacao div {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 #form-publicacao label {
     display: block;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: var(--cor-texto-claro);
+    font-family: var(--font-corpo); /* Inter */
+    font-weight: 500; /* Inter Medium */
+    margin-bottom: 0.6rem;
+    color: var(--cor-texto-secundario);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 #form-publicacao input[type="text"],
 #form-publicacao input[type="number"],
 #form-publicacao select {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--cor-borda);
-    border-radius: var(--border-radius-padrao);
-    font-family: var(--font-principal);
-    font-size: 0.95rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--cor-borda-input);
+    border-radius: var(--border-radius-classico);
+    font-family: var(--font-corpo); /* Inter */
+    font-size: 1rem;
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-principal);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -112,109 +131,139 @@ h2 {
 #form-publicacao input[type="number"]:focus,
 #form-publicacao select:focus {
     outline: none;
-    border-color: var(--cor-primaria);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.15);
 }
 
 .campos-especificos {
-    padding: 1rem;
-    margin-top: 1rem;
-    border: 1px dashed var(--cor-borda);
-    border-radius: var(--border-radius-padrao);
-    background-color: #fdfdfd; /* Leve diferenciação */
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border: 1px dashed var(--cor-borda-sutil);
+    border-radius: var(--border-radius-classico);
+    background-color: transparent;
 }
 .campos-especificos label {
-    width: auto; /* Para não ocupar 100% */
-    margin-right: 0.5rem;
+    text-transform: none;
+    font-weight: 400; /* Inter Regular para labels internas */
 }
-.campos-especificos input {
-    margin-bottom: 0.5rem; /* Espaçamento entre inputs nos campos específicos */
-}
-
 
 #form-publicacao button[type="submit"] {
-    background-color: var(--cor-primaria);
+    background-color: var(--cor-destaque);
     color: var(--cor-surface);
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: var(--border-radius-padrao);
-    font-family: var(--font-principal);
-    font-size: 1rem;
-    font-weight: 500;
+    padding: 0.9rem 2rem;
+    border: 1px solid var(--cor-destaque);
+    border-radius: var(--border-radius-classico);
+    font-family: var(--font-corpo); /* Inter */
+    font-size: 0.95rem;
+    font-weight: 600; /* Inter Semibold */
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    display: inline-block; /* Para não ocupar 100% da largura */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
 }
 
 #form-publicacao button[type="submit"]:hover {
-    background-color: var(--cor-primaria-hover);
+    background-color: var(--cor-destaque-hover);
+    border-color: var(--cor-destaque-hover);
     transform: translateY(-1px);
 }
 
 /* Estilização da lista de publicações */
 #publicacoes-container {
-    max-height: 600px; /* Altura máxima com scroll se necessário */
     overflow-y: auto;
-    padding-right: 0.5rem; /* Espaço para a barra de rolagem */
+    padding-right: 0.5rem;
+    flex-grow: 1;
 }
 
 .publicacao-item {
-    border: 1px solid var(--cor-borda);
-    padding: 1rem;
-    margin-bottom: 1rem;
+    padding: 1.25rem 0.75rem;
     cursor: pointer;
-    border-radius: var(--border-radius-padrao);
-    transition: box-shadow 0.2s ease, border-color 0.2s ease;
-    background-color: var(--cor-surface);
+    border-bottom: 1px solid var(--cor-borda-sutil);
+    transition: background-color 0.2s ease;
+    position: relative;
+}
+.publicacao-item:first-child {
+    border-top: 1px solid var(--cor-borda-sutil);
 }
 
 .publicacao-item:hover {
-    border-color: var(--cor-primaria);
-    box-shadow: var(--sombra-hover);
+    background-color: rgba(139, 69, 19, 0.03);
+}
+
+.publicacao-item.selecionado {
+    background-color: rgba(139, 69, 19, 0.06);
+    border-left: 3px solid var(--cor-destaque); /* Indicador visual forte */
+    padding-left: calc(0.75rem - 3px); /* Ajuste para compensar a borda */
 }
 
 .publicacao-item strong {
-    font-weight: 600;
-    color: var(--cor-primaria);
+    font-family: var(--font-corpo); /* Inter */
+    font-weight: 600; /* Inter Semibold */
+    font-size: 1.05rem;
+    color: var(--cor-texto-principal);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.publicacao-item span {
+    font-family: var(--font-corpo); /* Inter */
+    font-size: 0.85rem;
+    color: var(--cor-texto-secundario);
+    font-style: italic;
 }
 
 /* Estilização dos detalhes da publicação */
 #detalhes-container h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    font-size: 1.3rem;
-    color: var(--cor-texto);
+    font-family: var(--font-corpo); /* Inter */
+    font-weight: 600; /* Inter Semibold */
+    font-size: 1.4rem; /* Ajustar tamanho para Inter */
+    color: var(--cor-texto-principal);
+    margin-bottom: 1.25rem; /* Mais espaço após o título dos detalhes */
 }
 
 #detalhes-container p {
-    margin-bottom: 0.75rem;
-    color: var(--cor-texto-claro);
+    margin-bottom: 1rem;
+    color: var(--cor-texto-secundario);
+    font-family: var(--font-corpo); /* Inter */
+    font-size: 0.95rem;
+    line-height: 1.7;
 }
 
 #detalhes-container p strong {
-    color: var(--cor-texto);
-    font-weight: 500;
+    color: var(--cor-texto-principal);
+    font-weight: 600; /* Inter Semibold */
 }
 
 footer {
     text-align: center;
-    padding: 1.5rem 1rem;
-    background-color: #343a40; /* Cinza escuro para o rodapé */
-    color: #f8f9fa; /* Texto claro no rodapé */
-    margin-top: auto; /* Garante que o rodapé fique no final */
+    padding: 2.5rem 1rem;
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-secundario);
+    margin-top: auto;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--cor-borda-sutil);
 }
 
-/* Responsividade básica */
-@media (max-width: 992px) {
+/* Responsividade (mantida como antes, ajustes finos podem ser feitos se necessário) */
+@media (max-width: 1024px) {
     main {
         flex-direction: column;
+        padding: 1.5rem;
+        gap: 2rem;
     }
     #adicionar-publicacao,
     #lista-publicacoes,
     #detalhes-publicacao {
-        flex-basis: auto; /* Permite que ocupem a largura total */
-        width: 100%;
+        padding: 1.5rem 2rem;
+    }
+    header h1 {
+        font-size: 2rem; /* Ajustar se necessário para Playfair */
+    }
+    h2 {
+        font-size: 1.3rem; /* Ajustar para Inter */
+    }
+    #detalhes-container h3 {
+        font-size: 1.2rem; /* Ajustar para Inter */
     }
 }
 
@@ -223,32 +272,42 @@ footer {
         font-size: 1.8rem;
     }
     h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+    }
+    #detalhes-container h3 {
+        font-size: 1.1rem;
     }
     #form-publicacao input[type="text"],
     #form-publicacao input[type="number"],
-    #form-publicacao select,
-    #form-publicacao button[type="submit"] {
-        font-size: 0.9rem;
-        padding: 0.6rem;
+    #form-publicacao select {
+        font-size: 0.95rem;
+    }
+    main { padding: 1rem; }
+    #adicionar-publicacao,
+    #lista-publicacoes,
+    #detalhes-publicacao {
+        padding: 1.5rem;
     }
 }
 
-/* Estilos para a barra de rolagem (opcional, mas dá um toque) */
+/* Estilos para a barra de rolagem (Sutil) */
 ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
 }
-
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
+    background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
+    background: #CCC0B3;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #B8A99A;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #bbb;
+/* Efeito de seleção de texto */
+::selection {
+  background: rgba(160, 82, 45, 0.2);
+  color: var(--cor-texto-principal);
 }
